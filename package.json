@@ -1,0 +1,33 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "dependencies": {
+        "@vueuse/head": "^0.9.7",
+        "pinia": "^2.0.22",
+        "vue": "^3.2.37",
+        "vue-i18n": "^9.2.2",
+        "vue-router": "^4.1.5",
+        "vue3-dragula": "^1.0.0",
+        "vue3-perfect-scrollbar": "^1.6.0",
+        "vue3-popper": "^1.5.0"
+    },
+    "devDependencies": {
+        "@inertiajs/vue3": "^1.0.0",
+        "@intlify/vite-plugin-vue-i18n": "^6.0.3",
+        "@rollup/plugin-alias": "^3.1.9",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/typography": "^0.5.7",
+        "@vitejs/plugin-vue": "^5.0.0",
+        "autoprefixer": "^10.4.12",
+        "laravel-vite-plugin": "^0.7.2",
+        "postcss": "^8.4.31",
+        "tailwindcss": "^3.2.1",
+        "typescript": "^4.6.4",
+        "vite": "^3.1.0",
+        "vue": "^3.4.0",
+        "vue-tsc": "^0.40.4"
+    }
+}
