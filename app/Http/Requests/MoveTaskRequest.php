@@ -6,12 +6,11 @@ use App\Models\TaskUser;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class UpdateTaskRequest extends FormRequest
+class MoveTaskRequest extends FormRequest
 {
     const ROLE_ADMIN = 1;
     const ROLE_MEMBER = 2;
     const ROLE_VISITOR = 3;
-    /**
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -21,7 +20,7 @@ class UpdateTaskRequest extends FormRequest
         $role = TaskUser::where(['user_id'=>Auth::id(), 'task_id'=>$task->id])->first();
         return match ($role->role_id) {
             self::ROLE_ADMIN => true,
-            self::ROLE_MEMBER => false,
+            self::ROLE_MEMBER => true,
             self::ROLE_VISITOR => false,
         };
     }
@@ -34,10 +33,7 @@ class UpdateTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:45'],
-            'project' => ['required'],
-            'content' => ['required'],
-            'date_end' => ['required','after:start_date'],
+            'status_id' => ['required'],
         ];
     }
 }

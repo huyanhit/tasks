@@ -15,6 +15,7 @@ class AuthController extends Controller
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
+            'avatar'   => fake()->imageUrl(),
             'password' => Hash::make($request->password),
         ]);
 
@@ -29,9 +30,10 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request){
         $request->authenticate();
-        $token = Auth::user()->createToken('auth_token')->plainTextToken;
+        $user =  Auth::user();
+        $user['token'] = $user->createToken('auth_token')->plainTextToken;
 
-        return $this->responseSuccess(['token' => $token]);
+        return $this->responseSuccess($user);
     }
 
     public function logout() {

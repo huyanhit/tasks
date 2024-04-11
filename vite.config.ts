@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+// @ts-ignore
 import path from "path";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import laravel from "laravel-vite-plugin";
@@ -23,6 +24,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
+            vue: 'vue/dist/vue.esm-bundler.js',
             "@": path.resolve("./resources/js/src"),
         },
     },

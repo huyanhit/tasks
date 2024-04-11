@@ -11,7 +11,6 @@ class StoreTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        dd('sss');
         return true;
     }
 
@@ -23,7 +22,10 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'max:45'],
+            'project' => ['required'],
+            'content' => ['required'],
+            'date_end' => ['required','after:start_date'],
         ];
     }
 }

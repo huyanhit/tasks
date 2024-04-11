@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
+use App\Models\Task;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
+use App\Models\TaskUser;
+use App\Models\User;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ProjectController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return $this->responseSuccess(Project::get());
+        return $this->responseSuccess(User::get());
     }
 
     /**
@@ -28,15 +32,15 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request)
+    public function store(Request $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Task $task)
     {
         //
     }
@@ -44,7 +48,7 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Task $task)
     {
         //
     }
@@ -52,15 +56,15 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(Request $request, Task $task)
     {
-        //
+       //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(Task $task)
     {
         //
     }

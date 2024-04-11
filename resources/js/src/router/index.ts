@@ -3,12 +3,24 @@ import { useAppStore } from '@/stores/index';
 import appSetting from '@/app-setting';
 
 import HomeView from '../views/index.vue';
-import ToDoList from '../views/todolist.vue';
+import Task from '../views/task.vue';
+import Login from '../views/login.vue'
+import Register from '../views/register.vue';
+import TaskView from '../views/task-view.vue';
+import TaskEdit from '../views/task-edit.vue';
 
 const routes: RouteRecordRaw[] = [
     // dashboard
     { path: '/', name: 'home', component: HomeView },
-    { path: '/apps/todolist', name: 'todolist', component: ToDoList },
+    { path: '/task', name: 'task', component: Task,
+        beforeEnter: (to, from, next) => {
+            JSON.parse(localStorage.getItem('auth')) === null? next('login'): next();
+        }
+    },
+    { path: '/login', name: 'login', component: Login },
+    { path: '/register', name: 'register', component: Register },
+    { path: '/task-view/:id', name: 'task-view', component: TaskView },
+    { path: '/task-edit/:id', name: 'task-edit', component: TaskEdit },
 ];
 
 const router = createRouter({

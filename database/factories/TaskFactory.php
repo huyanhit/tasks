@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,8 +24,8 @@ class TaskFactory extends Factory
             'project_id' => rand(1, 4),
             'auth_id' => rand(1, 4),
             'comment'=> fake()->text(50),
-            'date_start'=>fake()->dateTime(),
-            'date_end'=>fake()->dateTime(),
+            'date_start'=>Carbon::now(),
+            'date_end'=>Carbon::now()->addDays(rand(0, 2)),
         ];
     }
 }
