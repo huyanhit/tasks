@@ -98,7 +98,7 @@ export const useAppStore = defineStore('app', {
         },
         toggleLocale(payload: any = null) {
             payload = payload || this.locale;
-            i18n.global.locale.value = payload;
+            if(i18n.global) i18n.global.locale.value = payload;
             localStorage.setItem('i18n_locale', payload);
             this.locale = payload;
             if(this.locale?.toLowerCase() === 'ae') {

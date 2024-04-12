@@ -28,9 +28,6 @@ export default defineConfig({
             "@": path.resolve("./resources/js/src"),
         },
     },
-    define: {
-        global: 'window',
-    },
     optimizeDeps: {
         include: ["quill"],
     },
