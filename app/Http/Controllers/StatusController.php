@@ -30,7 +30,20 @@ class StatusController extends Controller
      */
     public function store(StoreStatusRequest $request)
     {
-        //
+        $after = ($request->position === 'after');
+        $condition = $after? '>' : '>=';
+
+        Status::where('index', $condition, $request->index)->get()->map(function ($status){
+            $status->index = $status->index + 1;
+            $status->save();
+        });
+
+        Status::create([
+            'title' => $request->title,
+            'index' => $after ? $request->index + 1: $request->index,
+        ]);
+
+        return $this->responseSuccess(Status::get());
     }
 
     /**

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 
@@ -14,7 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return $this->responseSuccess(Role::get());
     }
 
     /**

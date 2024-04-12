@@ -9,6 +9,11 @@ class Status extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+        'title',
+        'index'
+    ];
+
     protected $hidden = [
         'created_at',
         'updated_at',
@@ -16,6 +21,6 @@ class Status extends Model
     ];
 
     protected $casts = [
-       
+
     ];
 }
